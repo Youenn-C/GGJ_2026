@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class S_SectMember : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class S_SectMember : MonoBehaviour
     [Space(5)]
     [SerializeField] private string _memberName;
     [Space(5)]
-    public bool _isHealthy;
-    public bool _isInfected;
-    public bool _isDead;
+    public bool isTheDemon;
+    public bool isHealthy;
+    public bool isInfected;
+    public bool isDead;
+
 
     void Start()
     {
@@ -28,14 +31,17 @@ public class S_SectMember : MonoBehaviour
         _interviewsDialoguesLines = _sectMemberData.interviewsDialoguesLines;
         _gossipsDialoguesLines = _sectMemberData.gossipsDialoguesLines;
         _memberName = _sectMemberData.memberName;
-        _isHealthy = _sectMemberData.isHealthy;
-        _isInfected = _sectMemberData.isInfected;
-        _isDead = _sectMemberData.isDead;
-        
+        isHealthy = _sectMemberData.isHealthy;
+        isInfected = _sectMemberData.isInfected;
+        isDead = _sectMemberData.isDead;
+
         // Auto-enregistrement dans le GameManager
-        print("Owner : " + gameObject.name);
-        print("Game Manager : " + S_GameManager.Instance.gameObject);
         S_GameManager.Instance.healthyMember.Add(this);
+    }
+
+    public void Change_Into_Demon()
+    {
+        gameObject.AddComponent<S_Demon>();
     }
 
     public void BecomeInfected()
@@ -46,5 +52,10 @@ public class S_SectMember : MonoBehaviour
     public void BecomeDeadMan()
     {
         S_GameManager.Instance.Change_SectMember_State_For_Dead(this);
+    }
+
+    public void OnMouseDown()
+    {
+        print("Element clicked : " + this.gameObject.name);
     }
 }

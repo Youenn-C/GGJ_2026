@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class S_GameManager : MonoBehaviour
 {
@@ -31,6 +31,24 @@ public class S_GameManager : MonoBehaviour
         }
     }
 
+    public void Init_Demon()
+    {
+        S_SectMember tempMember = healthyMember[Random.Range(0, S_GameManager.Instance.healthyMember.Count)];
+        tempMember.isTheDemon = true;
+        tempMember.Change_Into_Demon();
+    }
+    public void LoadScene()
+    {
+        if (SceneManager.GetActiveScene().name == "Lvl_Eglise")
+        {
+            SceneManager.LoadScene("Lvl_Regroupement_Nocturne");
+        }
+        else if (SceneManager.GetActiveScene().name == "Lvl_Regroupement_Nocturne")
+        {
+            SceneManager.LoadScene("Lvl_Eglise");  
+        }
+    }
+    
     private void Change_Phase()
     {
         if (currentDay < nbrMaxDay) currentDay ++; // Raccourci pour augmenter un "int" ou un "float" de 1
@@ -56,19 +74,19 @@ public class S_GameManager : MonoBehaviour
             if (currentMember == currentSectMember)
             {
                 healthyMember.Remove(currentMember);
-                possessedMember.Add(currentSectMember);
+                possessedMember.Add(currentMember);
             }
         }
     }
     
     public void Change_SectMember_State_For_Dead(S_SectMember currentSectMember)
     {
-        foreach (var currentMember in possessedMember)
+        foreach (var currentMember in healthyMember)
         {
             if (currentMember == currentSectMember)
             {
-                possessedMember.Remove(currentMember);
-                deadMember.Add(currentSectMember);
+                healthyMember.Remove(currentMember);
+                deadMember.Add(currentMember);
             }
         }
     }

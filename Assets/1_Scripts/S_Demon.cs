@@ -25,8 +25,9 @@ public class S_Demon : MonoBehaviour
         if (S_GameManager.Instance.healthyMember.Count > 0)
         {
             S_SectMember tempMember = S_GameManager.Instance.healthyMember[Random.Range(0, S_GameManager.Instance.healthyMember.Count)];
-            tempMember._isHealthy = false;
-            tempMember._isInfected = true;
+            tempMember.isHealthy = false;
+            tempMember.isInfected = true;
+            tempMember.isDead = false;
             tempMember.BecomeInfected();
         }
     }
@@ -36,8 +37,9 @@ public class S_Demon : MonoBehaviour
         if (S_GameManager.Instance.healthyMember.Count > 0)
         {
             S_SectMember tempMember = S_GameManager.Instance.healthyMember[Random.Range(0, S_GameManager.Instance.healthyMember.Count)];
-            tempMember._isHealthy = false;
-            tempMember._isDead = true;
+            tempMember.isHealthy = false;
+            tempMember.isInfected = false;
+            tempMember.isDead = true;
             tempMember.BecomeDeadMan();
         }
     }
