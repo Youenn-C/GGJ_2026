@@ -2,19 +2,20 @@ using UnityEngine;
 
 public class S_Demon : MonoBehaviour
 {
+    void Start()
+    {
+        S_GameManager.Instance._demonScript = this;
+    }
+    
     public void Draw_Action()
     {
         int randomInt = Random.Range(0, 3);
 
-        if (randomInt == 0)
-        {
-            print("Nothing Append");
-        }
-        else if (randomInt == 1)
+        if (randomInt == 1)
         {
             Infect_Random_Member();
         }
-        else
+        else if (randomInt == 2)
         {
             Kill_Random_Member();
         }

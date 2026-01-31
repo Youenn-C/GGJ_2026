@@ -7,8 +7,8 @@ public class S_GameManager : MonoBehaviour
     public static S_GameManager Instance;
     
     [Header("References"), Space(5)]
-    [SerializeField] private S_Demon _demonScript;
-
+    public S_Demon _demonScript;
+    
     [Header("Variables"), Space(5)]
     public int currentDay = 1;
     public int nbrMaxDay = 4;
@@ -18,6 +18,7 @@ public class S_GameManager : MonoBehaviour
     public List<S_SectMember> healthyMember = new List<S_SectMember>();
     public List<S_SectMember> possessedMember = new List<S_SectMember>();
     public List<S_SectMember> deadMember = new List<S_SectMember>();
+    public S_SectMember actualDemon;
     
     void Awake()
     {
@@ -31,19 +32,27 @@ public class S_GameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        Init_Demon();
+        _demonScript = actualDemon.GetComponent<S_Demon>();
+    }
+    
     public void Init_Demon()
     {
-        S_SectMember tempMember = healthyMember[Random.Range(0, S_GameManager.Instance.healthyMember.Count)];
-        tempMember.isTheDemon = true;
-        tempMember.Change_Into_Demon();
+        actualDemon = healthyMember[Random.Range(0, healthyMember.Count)];
+        actualDemon.isTheDemon = true;
+        actualDemon.Change_Into_Demon();
     }
+    
+    
     public void LoadScene()
     {
         if (SceneManager.GetActiveScene().name == "Lvl_Eglise")
         {
-            SceneManager.LoadScene("Lvl_Regroupement_Nocturne");
+            SceneManager.LoadScene("Lvl_Rituel");
         }
-        else if (SceneManager.GetActiveScene().name == "Lvl_Regroupement_Nocturne")
+        else if (SceneManager.GetActiveScene().name == "Lvl_Rituel")
         {
             SceneManager.LoadScene("Lvl_Eglise");  
         }
@@ -85,9 +94,26 @@ public class S_GameManager : MonoBehaviour
         {
             if (currentMember == currentSectMember)
             {
-                healthyMember.Remove(currentMember);
+                healthyMember.Remove(currentMember);    
                 deadMember.Add(currentMember);
             }
         }
+    }
+    
+    public void Change_SectMember_State_For_Demon(S_SectMember currentSectMember)
+    {
+        foreach (var currentMember in healthyMember)
+        {
+            if (currentMember == currentSectMember)
+            {
+                healthyMember.Remove(currentMember);    
+                actualDemon = currentMember;
+            }
+        }
+    }
+
+    public void Demon_Launch_Attack()
+    {
+        _demonScript.Draw_Action();
     }
 }

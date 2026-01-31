@@ -7,13 +7,10 @@ public class S_SectMember : MonoBehaviour
 {
     [Header("References"), Space(5)]
     [SerializeField] private S_SectMemberData _sectMemberData;
-    [SerializeField] private Image _image;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     
     [Header("Variables"), Space(5)]
     [SerializeField] private Sprite _memberSprite;
-    [Space(5)]
-    [SerializeField] private List<string> _interviewsDialoguesLines;
-    [SerializeField] private List<string> _gossipsDialoguesLines;
     [Space(5)]
     [SerializeField] private string _memberName;
     [Space(5)]
@@ -27,9 +24,7 @@ public class S_SectMember : MonoBehaviour
     {
         // Chargement des données depuis le ScriptableObject (DataAsset)  
         _memberSprite = _sectMemberData.memberSprite;
-        _image.sprite = _memberSprite;
-        _interviewsDialoguesLines = _sectMemberData.interviewsDialoguesLines;
-        _gossipsDialoguesLines = _sectMemberData.gossipsDialoguesLines;
+        _spriteRenderer.sprite = _memberSprite;
         _memberName = _sectMemberData.memberName;
         isHealthy = _sectMemberData.isHealthy;
         isInfected = _sectMemberData.isInfected;
@@ -42,6 +37,7 @@ public class S_SectMember : MonoBehaviour
     public void Change_Into_Demon()
     {
         gameObject.AddComponent<S_Demon>();
+        S_GameManager.Instance.Change_SectMember_State_For_Demon(this);
     }
 
     public void BecomeInfected()
@@ -56,6 +52,6 @@ public class S_SectMember : MonoBehaviour
 
     public void OnMouseDown()
     {
-        print("Element clicked : " + this.gameObject.name);
+        Debug.Log("Element clicked : " + this.gameObject.name);
     }
 }

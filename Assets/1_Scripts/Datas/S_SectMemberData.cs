@@ -7,10 +7,8 @@ public class S_SectMemberData : ScriptableObject
 {
     [Header("References"), Space(5)]
     public Sprite memberSprite;
-    public List<string> interviewsDialoguesLines;
-    public List<string> gossipsDialoguesLines;
     
-    [Header("References"), Space(5)]
+    [Header("Variables"), Space(5)]
     public string memberName;
     public bool isHealthy = true;
     public bool isInfected = false;
