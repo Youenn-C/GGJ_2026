@@ -51,12 +51,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_SectMember
   _sectMemberData: {fileID: 0}
+  _image: {fileID: 3433323109105409543}
   _memberSprite: {fileID: 0}
   _interviewsDialoguesLines: []
   _gossipsDialoguesLines: []
   _memberName: 
   _isHealthy: 0
-  _isPossessed: 0
+  _isInfected: 0
   _isDead: 0
 --- !u!222 &7523474395769003135
 CanvasRenderer:

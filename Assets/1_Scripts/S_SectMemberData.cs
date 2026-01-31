@@ -13,6 +13,6 @@ public class S_SectMemberData : ScriptableObject
     [Header("References"), Space(5)]
     public string memberName;
     public bool isHealthy = true;
-    public bool isPossessed = false;
+    public bool isInfected = false;
     public bool isDead = false;
 }

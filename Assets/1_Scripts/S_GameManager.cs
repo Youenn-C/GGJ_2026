@@ -10,10 +10,10 @@ public class S_GameManager : MonoBehaviour
     [SerializeField] private S_Demon _demonScript;
 
     [Header("Variables"), Space(5)]
-    public int currentPhase = 1;
-    public int nbrMaxPhase;
+    public int currentDay = 1;
+    public int nbrMaxDay = 4;
     [Space(5)]
-    public bool dayPhase;
+    public bool dayPhase = true;
     [Space(5)]
     public List<S_SectMember> healthyMember = new List<S_SectMember>();
     public List<S_SectMember> possessedMember = new List<S_SectMember>();
@@ -31,26 +31,25 @@ public class S_GameManager : MonoBehaviour
         }
     }
 
-    public void Change_Phase()
+    private void Change_Phase()
     {
-        currentPhase ++; // Raccourci pour augmenter un "int" ou un "float" de 1
-        
+        if (currentDay < nbrMaxDay) currentDay ++; // Raccourci pour augmenter un "int" ou un "float" de 1
     }
 
-    private void Switch_Day_Cycle()
+    public void Switch_Day_Cycle()
     {
         if (dayPhase)
         {
             dayPhase = !dayPhase; // Prends son inverse
+            Change_Phase();
         }
         else
         {
             dayPhase = !dayPhase; // Prends son inverse
-            Change_Phase();
         }
     }
 
-    public void Change_SectMember_State_For_Possessed(S_SectMember currentSectMember)
+    public void Change_SectMember_State_For_Infected(S_SectMember currentSectMember)
     {
         foreach (var currentMember in healthyMember)
         {

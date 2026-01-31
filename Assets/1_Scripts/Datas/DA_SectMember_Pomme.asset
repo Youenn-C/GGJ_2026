@@ -17,5 +17,5 @@ MonoBehaviour:
   gossipsDialoguesLines: []
   memberName: Pomme
   isHealthy: 1
-  isPossessed: 0
+  isInfected: 0
   isDead: 0

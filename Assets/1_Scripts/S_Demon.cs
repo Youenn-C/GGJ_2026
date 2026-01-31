@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class S_Demon : MonoBehaviour
 {
-
     public void Draw_Action()
     {
         int randomInt = Random.Range(0, 3);
@@ -21,15 +20,25 @@ public class S_Demon : MonoBehaviour
         }
     }
     
-    private void Infect_Random_Member()
+    public void Infect_Random_Member()
     {
-        S_SectMember tempMember = S_GameManager.Instance.healthyMember[Random.Range(0, S_GameManager.Instance.healthyMember.Count)];
-        S_GameManager.Instance.Change_SectMember_State_For_Possessed(tempMember);
+        if (S_GameManager.Instance.healthyMember.Count > 0)
+        {
+            S_SectMember tempMember = S_GameManager.Instance.healthyMember[Random.Range(0, S_GameManager.Instance.healthyMember.Count)];
+            tempMember._isHealthy = false;
+            tempMember._isInfected = true;
+            tempMember.BecomeInfected();
+        }
     }
     
-    private void Kill_Random_Member()
+    public void Kill_Random_Member()
     {
-        S_SectMember tempMember = S_GameManager.Instance.healthyMember[Random.Range(0, S_GameManager.Instance.healthyMember.Count)];
-        S_GameManager.Instance.Change_SectMember_State_For_Dead(tempMember);
+        if (S_GameManager.Instance.healthyMember.Count > 0)
+        {
+            S_SectMember tempMember = S_GameManager.Instance.healthyMember[Random.Range(0, S_GameManager.Instance.healthyMember.Count)];
+            tempMember._isHealthy = false;
+            tempMember._isDead = true;
+            tempMember.BecomeDeadMan();
+        }
     }
 }
