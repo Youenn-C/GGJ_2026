@@ -1,17 +1,17 @@
+using System;
+using NUnit.Framework.Internal;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-       
-    }
+    public int Actions = 3;
+    
+    public int Hint = 1;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        Debug.Log(Actions);
+        Debug.Log(Hint);
     }
 }
