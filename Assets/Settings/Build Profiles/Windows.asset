@@ -23,7 +23,7 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/0_Scenes/Lvl_Main_Menu.unity
   - m_enabled: 1
-    m_path: Assets/0_Scenes/Lvl_Eglise.unity
+    m_path: Assets/0_Scenes/Lvl_Church.unity
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

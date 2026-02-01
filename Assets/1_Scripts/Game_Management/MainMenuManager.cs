@@ -32,16 +32,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (_allowInteractionWhisButtons)
         {
-            print("StartGame");
             StartCoroutine(LoadScene());
-        }
-    }
-
-    public void Credits()
-    {
-        if (_allowInteractionWhisButtons)
-        {
-            print("Credits");
         }
     }
 
@@ -49,7 +40,6 @@ public class MainMenuManager : MonoBehaviour
     {
         if (_allowInteractionWhisButtons)
         {
-            print("ExitGame");
             Application.Quit();
         }
     }

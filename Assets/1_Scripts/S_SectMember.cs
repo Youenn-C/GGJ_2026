@@ -69,5 +69,15 @@ public class S_SectMember : MonoBehaviour
             S_GameManager.Instance.inInteraction = false;
         }
         
+        if (S_GameManager.Instance.currentNbrInteraction == S_GameManager.Instance.nbrInteractionMax)
+        {
+            S_GameManager.Instance.currentDaySequence++;
+            S_GameManager.Instance.Change_Current_Sequence();
+        }
+    }
+
+    public void Update_Life_State()
+    {
+        if (isDead) Destroy(this);
     }
 }

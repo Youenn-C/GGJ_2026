@@ -1,7 +1,10 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class S_GameManager : MonoBehaviour
 {
@@ -16,21 +19,27 @@ public class S_GameManager : MonoBehaviour
     
     [Header("Variables"), Space(5)]
     public S_SectMember actualDemon;
+    public List<S_SectMember> allAliveMember = new List<S_SectMember>();
     public List<S_SectMember> healthyMember = new List<S_SectMember>();
-    public List<S_SectMember> possessedMember = new List<S_SectMember>();
+    public List<S_SectMember> infectedMember = new List<S_SectMember>();
     public List<S_SectMember> deadMember = new List<S_SectMember>();
+    [Space(5)]
     public List<string> gossip =  new List<string>();
+    [Space(5)]
+    public GameObject sacrificeSelection;
     [Space(5)]
     public Vector3 defaultCameraLocation;
     public Quaternion defaultCameraRotation;
     [Space(5)]
     public int currentDay = 1;
     public int nbrMaxDay = 4;
+    public int currentDaySequence = 1;
+    public int maxDaySequences = 3;
     public int nbrInteractionMax = 3;
     public int currentNbrInteraction;
     [Space(5)]
     public bool dayPhase = true;
-    public bool inInteraction;
+    public bool inInteraction = true;
     
     void Awake()
     {
@@ -50,6 +59,8 @@ public class S_GameManager : MonoBehaviour
         _demonScript = actualDemon.GetComponent<S_Demon>();
 
         actionPointGauge.fillAmount = 1f;
+
+        Change_Current_Sequence();
     }
     
     public void Init_Demon()
@@ -64,19 +75,6 @@ public class S_GameManager : MonoBehaviour
         if (currentDay < nbrMaxDay) currentDay ++; // Raccourci pour augmenter un "int" ou un "float" de 1
     }
 
-    public void Switch_Day_Cycle()
-    {
-        if (dayPhase)
-        {
-            dayPhase = !dayPhase; // Prends son inverse
-            Change_Phase();
-        }
-        else
-        {
-            dayPhase = !dayPhase; // Prends son inverse
-        }
-    }
-
     public void Change_SectMember_State_For_Infected(S_SectMember currentSectMember)
     {
         foreach (var currentMember in healthyMember)
@@ -84,7 +82,7 @@ public class S_GameManager : MonoBehaviour
             if (currentMember == currentSectMember)
             {
                 healthyMember.Remove(currentMember);
-                possessedMember.Add(currentMember);
+                infectedMember.Add(currentMember);
             }
         }
     }
@@ -128,5 +126,50 @@ public class S_GameManager : MonoBehaviour
     public void Close_Dialogue_Datas()
     {
         sectMemberDialogue.SetActive(false);
+    }
+
+
+    public void Change_Current_Sequence()
+    {
+        currentDaySequence++;
+        if (currentDaySequence == 1)
+        {
+            Launch_Sequence_One();
+        }
+        else if (currentDaySequence == 2)
+        {
+            Launch_Sequence_Two();
+        }
+        else
+        {
+            Launch_Sequence_Three();
+        }
+    }
+
+    public void Launch_Sequence_One()
+    {
+        foreach (var member in allAliveMember)
+        {
+            member.Update_Life_State();
+        }
+    }
+    
+    public void Launch_Sequence_Two()
+    {
+        sacrificeSelection.SetActive(true);
+    }
+    
+    public void Launch_Sequence_Three()
+    {
+        sacrificeSelection.SetActive(false);
+        Demon_Launch_Attack();
+        currentDaySequence = 1;
+        StartCoroutine(Time_Before_Sequence_One());
+    }
+
+    IEnumerator Time_Before_Sequence_One()
+    {
+        yield return new WaitForSeconds(3f);
+        Change_Current_Sequence();
     }
 }
