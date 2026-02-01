@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class S_SectMember : MonoBehaviour
 {
@@ -18,8 +15,8 @@ public class S_SectMember : MonoBehaviour
     public bool isHealthy;
     public bool isInfected;
     public bool isDead;
-
-
+    public bool inInteraction;
+    
     void Start()
     {
         // Chargement des données depuis le ScriptableObject (DataAsset)  
@@ -52,6 +49,25 @@ public class S_SectMember : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Debug.Log("Element clicked : " + this.gameObject.name);
+        GameObject currentCamera = Camera.main.gameObject;
+        
+        if (!S_GameManager.Instance.inInteraction && S_GameManager.Instance.currentNbrInteraction < S_GameManager.Instance.nbrInteractionMax)
+        {
+            S_GameManager.Instance.inInteraction = true;
+            S_GameManager.Instance.currentNbrInteraction++;
+            S_GameManager.Instance.actionPointGauge.fillAmount -= 1/3f;
+            currentCamera.transform.LookAt(gameObject.transform);
+            currentCamera.transform.position = Vector3.Lerp(currentCamera.transform.position, gameObject.transform.position, 0.8f);
+            S_GameManager.Instance.Open_And_Update_Dialogue_Datas(_memberName, S_GameManager.Instance.gossip[Random.Range(0, S_GameManager.Instance.gossip.Count)]);
+        }
+
+        else
+        {
+            currentCamera.transform.position = new Vector3(S_GameManager.Instance.defaultCameraLocation.x, S_GameManager.Instance.defaultCameraLocation.y, S_GameManager.Instance.defaultCameraLocation.z);
+            currentCamera.transform.rotation = new Quaternion(S_GameManager.Instance.defaultCameraRotation.x, S_GameManager.Instance.defaultCameraRotation.y, S_GameManager.Instance.defaultCameraRotation.z, S_GameManager.Instance.defaultCameraRotation.w);
+            S_GameManager.Instance.Close_Dialogue_Datas();
+            S_GameManager.Instance.inInteraction = false;
+        }
+        
     }
 }

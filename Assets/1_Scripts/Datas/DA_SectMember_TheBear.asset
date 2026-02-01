@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 293c45cc2b5c99642a56672b3da7673b, type: 3}
-  m_Name: DA_SectMember_Andre
+  m_Name: DA_SectMember_TheBear
   m_EditorClassIdentifier: Assembly-CSharp::S_SectMemberData
-  memberSprite: {fileID: 0}
-  interviewsDialoguesLines: []
-  gossipsDialoguesLines: []
-  memberName: Andre
+  memberSprite: {fileID: 21300000, guid: 2f0c8a8cc02d7444180fd4f3596cb69d, type: 3}
+  memberName: The Bear
   isHealthy: 1
   isInfected: 0
   isDead: 0

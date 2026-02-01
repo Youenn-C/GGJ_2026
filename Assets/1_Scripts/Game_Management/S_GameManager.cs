@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class S_GameManager : MonoBehaviour
 {
@@ -8,17 +9,28 @@ public class S_GameManager : MonoBehaviour
     
     [Header("References"), Space(5)]
     public S_Demon _demonScript;
+    public GameObject sectMemberDialogue;
+    public TMP_Text sectMemberNameText;
+    public TMP_Text sectMemberDialogueText;
+    public Image actionPointGauge;
     
     [Header("Variables"), Space(5)]
-    public int currentDay = 1;
-    public int nbrMaxDay = 4;
-    [Space(5)]
-    public bool dayPhase = true;
-    [Space(5)]
+    public S_SectMember actualDemon;
     public List<S_SectMember> healthyMember = new List<S_SectMember>();
     public List<S_SectMember> possessedMember = new List<S_SectMember>();
     public List<S_SectMember> deadMember = new List<S_SectMember>();
-    public S_SectMember actualDemon;
+    public List<string> gossip =  new List<string>();
+    [Space(5)]
+    public Vector3 defaultCameraLocation;
+    public Quaternion defaultCameraRotation;
+    [Space(5)]
+    public int currentDay = 1;
+    public int nbrMaxDay = 4;
+    public int nbrInteractionMax = 3;
+    public int currentNbrInteraction;
+    [Space(5)]
+    public bool dayPhase = true;
+    public bool inInteraction;
     
     void Awake()
     {
@@ -36,6 +48,8 @@ public class S_GameManager : MonoBehaviour
     {
         Init_Demon();
         _demonScript = actualDemon.GetComponent<S_Demon>();
+
+        actionPointGauge.fillAmount = 1f;
     }
     
     public void Init_Demon()
@@ -43,19 +57,6 @@ public class S_GameManager : MonoBehaviour
         actualDemon = healthyMember[Random.Range(0, healthyMember.Count)];
         actualDemon.isTheDemon = true;
         actualDemon.Change_Into_Demon();
-    }
-    
-    
-    public void LoadScene()
-    {
-        if (SceneManager.GetActiveScene().name == "Lvl_Eglise")
-        {
-            SceneManager.LoadScene("Lvl_Rituel");
-        }
-        else if (SceneManager.GetActiveScene().name == "Lvl_Rituel")
-        {
-            SceneManager.LoadScene("Lvl_Eglise");  
-        }
     }
     
     private void Change_Phase()
@@ -115,5 +116,17 @@ public class S_GameManager : MonoBehaviour
     public void Demon_Launch_Attack()
     {
         _demonScript.Draw_Action();
+    }
+
+    public void Open_And_Update_Dialogue_Datas(string name, string dialogue)
+    {
+        sectMemberDialogue.SetActive(true);
+        sectMemberNameText.text = name;
+        sectMemberDialogueText.text = dialogue;
+    }
+    
+    public void Close_Dialogue_Datas()
+    {
+        sectMemberDialogue.SetActive(false);
     }
 }

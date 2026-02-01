@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3113875251860705152}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.27522, y: 0.27522, z: 0.27522}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5447620523155814177}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!212 &204720964394072820
 SpriteRenderer:
   serializedVersion: 2
@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,15 +81,15 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 2f0c8a8cc02d7444180fd4f3596cb69d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 38.399998, y: 21.599998}
+  m_Size: {x: 10.24, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!1 &3538378033942917031
 GameObject:
@@ -101,8 +101,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5447620523155814177}
   - component: {fileID: 5998201932726379663}
+  - component: {fileID: 3492013020279617766}
   m_Layer: 0
-  m_Name: Patient_0
+  m_Name: TheBear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,10 +116,10 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3538378033942917031}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1706954904542060765}
   m_Father: {fileID: 0}
@@ -140,13 +141,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e76c62d3f4145947bbf1188173cc0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_SectMember
-  _sectMemberData: {fileID: 0}
+  _sectMemberData: {fileID: 11400000, guid: 4bde63aa7ce2f934bbd0a1d95f888123, type: 2}
   _spriteRenderer: {fileID: 204720964394072820}
   _memberSprite: {fileID: 0}
-  _interviewsDialoguesLines: []
-  _gossipsDialoguesLines: []
   _memberName: 
   isTheDemon: 0
   isHealthy: 0
   isInfected: 0
   isDead: 0
+  inInteraction: 0
+--- !u!65 &3492013020279617766
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3538378033942917031}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.16364221, y: 2.2039795, z: 2.0347269}
+  m_Center: {x: 0, y: -0.089692876, z: 0}
