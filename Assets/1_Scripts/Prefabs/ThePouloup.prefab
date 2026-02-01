@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e76c62d3f4145947bbf1188173cc0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_SectMember
-  _sectMemberData: {fileID: 11400000, guid: 11e1e381eef53f54ebe56d6761373d04, type: 2}
+  _sectMemberData: {fileID: 11400000, guid: 119b2d148a32a994f9d77a54f3c68e76, type: 2}
   _spriteRenderer: {fileID: 204720964394072820}
   _memberSprite: {fileID: 21300000, guid: 9e4b492f0f6548f4e9a576e363500f05, type: 3}
   _memberName: 

@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5998201932726379663}
   - component: {fileID: 8251991454405142216}
   m_Layer: 0
-  m_Name: TheGorilla
+  m_Name: TheMonkey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

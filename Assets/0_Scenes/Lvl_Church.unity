@@ -2940,9 +2940,29 @@ MonoBehaviour:
   possessedMember: []
   deadMember: []
   gossip:
-  - "Je trouve X \xE9trange ces derniers temps"
-  - "X est moins assidu sur les pri\xE8res"
-  - "X est toujours de m\xEAche avec les canailles"
+  - I discovered my left foot was much more bigger that my right foot. That's all.
+  - Yesterday evening, my slipper was stuck under my bed. I am frustrated and have
+    only one slipper.
+  - I ate a radish and now i love radishes. Maybe it became my favourite food.
+  - I just started to write a book about stones, so i gathered a lot of them.
+  - I can't stand washing dishes, I am sure God will grant me a bright future instead.
+  - You are so beautiful. Is that love ?
+  - I like just laying on the floor watching the night sky.
+  - I think The Elephant lost some weight. Intriguing, isn't it ?
+  - I found a clover without leaves, but The Koala said it was grass. Such a liar.
+  - I saw The Mouse pulled they tooth, i still have chills in my spin.
+  - I heard PEBBLE telling they were going to kill all believers in they dreams.
+    Beware.
+  - The Pig stole my kouign amann. They sure are the demon.
+  - 'I saw The Bear burning some butter yesterday. They said it was spoiled but i
+    think it''s a lie. '
+  - 'I heard The Cat doubting of our cult. '
+  - 'The Rat spit in the kouign amann factory. Burn them ! '
+  - 'The Pouloup put some butter without salt in their cake. They are definitely
+    the demon ! '
+  - 'The Monkey threw my kouign amann by the window. '
+  - 'I dislike butter-nut. It''s disgusting. '
+  - 'The sandwich with fries is an absolute wonder. It seems to swallow my soul. '
   defaultCameraLocation: {x: -9.75, y: 3.5, z: 0}
   defaultCameraRotation: {x: 0.07698051, y: 0.702904, z: -0.07698051, w: 0.702904}
   currentDay: 1
@@ -4527,9 +4547,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 330585546}
-  - {fileID: 1420974463}
-  - {fileID: 321477466}
   - {fileID: 1290363233}
   - {fileID: 85618676}
+  - {fileID: 1420974463}
+  - {fileID: 321477466}
   - {fileID: 14455772}
   - {fileID: 1096496334}
