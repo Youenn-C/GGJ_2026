@@ -62,7 +62,7 @@ public class MainMenuManager : MonoBehaviour
     
     public IEnumerator LoadScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Lvl_Eglise");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Lvl_Church");
 
         while (!asyncLoad.isDone)
         {
