@@ -40,26 +40,19 @@ public class S_GameManager : MonoBehaviour
     [Space(5)]
     public bool dayPhase = true;
     public bool inInteraction = true;
+    public bool canInteract = true;
     
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(this);
     }
 
     void Start()
     {
         Init_Demon();
         _demonScript = actualDemon.GetComponent<S_Demon>();
-
         actionPointGauge.fillAmount = 1f;
-
         Change_Current_Sequence();
     }
     
@@ -131,7 +124,9 @@ public class S_GameManager : MonoBehaviour
 
     public void Change_Current_Sequence()
     {
+        canInteract = false;
         currentDaySequence++;
+        
         if (currentDaySequence == 1)
         {
             Launch_Sequence_One();
@@ -144,12 +139,15 @@ public class S_GameManager : MonoBehaviour
         {
             Launch_Sequence_Three();
         }
+        
+        canInteract = true;
     }
 
     public void Launch_Sequence_One()
     {
         foreach (var member in allAliveMember)
         {
+            S_GameManager.Instance.actionPointGauge.fillAmount = 1;
             member.Update_Life_State();
         }
     }
