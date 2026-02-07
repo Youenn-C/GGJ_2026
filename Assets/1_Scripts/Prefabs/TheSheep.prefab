@@ -145,10 +145,10 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 204720964394072820}
   _memberSprite: {fileID: 21300000, guid: 9e4b492f0f6548f4e9a576e363500f05, type: 3}
   _memberName: 
-  isTheDemon: 0
   isHealthy: 0
   isInfected: 0
   isDead: 0
+  isTheDemon: 0
   inInteraction: 0
 --- !u!65 &8251991454405142216
 BoxCollider:
@@ -169,5 +169,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.16364221, y: 2.2039795, z: 1.4597081}
-  m_Center: {x: 0, y: -0.08969281, z: 0.055243112}
+  m_Size: {x: 0.16364221, y: 1.5679116, z: 0.94867957}
+  m_Center: {x: 0, y: -0.06522841, z: 0.022624236}

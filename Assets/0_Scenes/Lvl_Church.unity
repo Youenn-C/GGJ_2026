@@ -5154,6 +5154,7 @@ MonoBehaviour:
   currentNbrInteraction: 0
   dayPhase: 1
   inInteraction: 1
+  canInteract: 1
 --- !u!1001 &1290859929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6209,7 +6210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5447620523155814177, guid: 408db9329ce658a4e9a407a4cdebf14b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.36
+      value: 2.35
       objectReference: {fileID: 0}
     - target: {fileID: 5447620523155814177, guid: 408db9329ce658a4e9a407a4cdebf14b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8053,6 +8054,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1420974463}
     m_Modifications:
+    - target: {fileID: 1706954904542060765, guid: 315cc12222041eb4b874781f31848b54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706954904542060765, guid: 315cc12222041eb4b874781f31848b54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.081
+      objectReference: {fileID: 0}
     - target: {fileID: 3538378033942917031, guid: 315cc12222041eb4b874781f31848b54, type: 3}
       propertyPath: m_Name
       value: ThePouloup
@@ -8099,7 +8108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5447620523155814177, guid: 315cc12222041eb4b874781f31848b54, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.45
+      value: 1.335
       objectReference: {fileID: 0}
     - target: {fileID: 5447620523155814177, guid: 315cc12222041eb4b874781f31848b54, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8342,7 +8351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5447620523155814177, guid: 8ac435c3259573d429dd89cfc822d050, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.746
+      value: 2.825
       objectReference: {fileID: 0}
     - target: {fileID: 5447620523155814177, guid: 8ac435c3259573d429dd89cfc822d050, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9090,7 +9099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5447620523155814177, guid: a607f35e3b6fa6c4aa8b8d96b3cb2c8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.34
+      value: 1.088
       objectReference: {fileID: 0}
     - target: {fileID: 5447620523155814177, guid: a607f35e3b6fa6c4aa8b8d96b3cb2c8d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9200,7 +9209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5447620523155814177, guid: 9ff3223d20cfd2943b96969a3c5f83dc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.56
+      value: 2.156
       objectReference: {fileID: 0}
     - target: {fileID: 5447620523155814177, guid: 9ff3223d20cfd2943b96969a3c5f83dc, type: 3}
       propertyPath: m_LocalRotation.w
